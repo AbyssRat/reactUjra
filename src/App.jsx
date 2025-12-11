@@ -17,6 +17,18 @@ function App() {
   return (
     <>
      <h1>kereses</h1>
+     <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>név</th>
+          <th>kor</th>
+          <th>belepes</th>
+        </tr>
+      </thead>
+    </table>
+     
+     
      
      <KeresoPanel />
      <DataTable adatok={adatok} />
