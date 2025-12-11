@@ -1,4 +1,4 @@
-const LoadData = () => {
+const LoadData = ({adatok, setAdatok}) => {
     return (
         <div>
             <h2>load complete</h2>
