@@ -7,6 +7,12 @@ import axios from 'axios'
 
 function App() {
   const [adatok, setAdatok] = useState([])
+  const [filters, setFilters] = useState({
+    id: '',
+    nev: '',
+    kor:'',
+    belepesDatuma:''
+  })
   useEffect(()=> {
     LoadData({adatok, setAdatok})
   }, []);
@@ -17,7 +23,7 @@ function App() {
   return (
     <>
      <h1>kereses</h1>
-     <table>
+    <form action="">
       <thead>
         <tr>
           <th>id</th>
@@ -26,11 +32,12 @@ function App() {
           <th>belepes</th>
         </tr>
       </thead>
-    </table>
+      </form>
+    
      
      
      
-     <KeresoPanel />
+     <KeresoPanel filters={filters} setFilters={setFilters}/>
      <DataTable adatok={adatok} />
 
     </>

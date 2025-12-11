@@ -1,4 +1,4 @@
-const KeresoPanel = () => {
+const KeresoPanel = ({filters, setFilters}) => {
     return(
         <tr>
             <th><input type="number" name="id" id="id" /></th>
