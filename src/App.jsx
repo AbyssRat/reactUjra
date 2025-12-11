@@ -7,6 +7,9 @@ import axios from 'axios'
 
 function App() {
   const [adatok, setAdatok] = useState([])
+  useEffect(()=> {
+    LoadData({adatok, setAdatok})
+  }, []);
   
 
   //https://retoolapi.dev/hUctvr/dolgozok
@@ -14,9 +17,9 @@ function App() {
   return (
     <>
      <h1>kereses</h1>
-     <LoadData adatok={adatok} setAdatok={setAdatok} />
+     
      <KeresoPanel />
-     <DataTable />
+     <DataTable adatok={adatok} />
 
     </>
   )
