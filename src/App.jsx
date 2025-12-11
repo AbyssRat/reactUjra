@@ -13,6 +13,18 @@ function App() {
     kor:'',
     belepesDatuma:''
   })
+  const [szurtAdatok, setSzurtAdatok] = useState(adatok)
+
+  const szures = (e) => {
+    e.preventDefault()
+    let szurtAdat = adatok.filter((adatsor)=> {
+      return (
+        (filters.id === '' || adatsor.id === Number(filters.id))&&
+        (filters.nev === '' || adatsor.TeljesNev.toLowerCase())
+      )
+    })
+    setSzurtAdatok(szurtAdat)
+  }
   useEffect(()=> {
     LoadData({adatok, setAdatok})
   }, []);
@@ -24,6 +36,8 @@ function App() {
     <>
      <h1>kereses</h1>
     <form action="">
+      <button onClick={szures}>Kereses</button>
+      <table>
       <thead>
         <tr>
           <th>id</th>
@@ -31,14 +45,16 @@ function App() {
           <th>kor</th>
           <th>belepes</th>
         </tr>
-      </thead>
+        <KeresoPanel filters={filters} setFilters={setFilters}/>
+      </thead><DataTable adatok={szurtAdatok} />
+      </table>
       </form>
     
      
      
      
-     <KeresoPanel filters={filters} setFilters={setFilters}/>
-     <DataTable adatok={adatok} />
+     
+     
 
     </>
   )
